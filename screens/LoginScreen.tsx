@@ -30,7 +30,7 @@ export default function LoginScreen({navigation}) {
       }
     }
     
-    confirm ? navigation.navigate("PhoneLogin", confirm) : null
+    //confirm ? navigation.navigate("PhoneLogin", confirm) : null
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -73,6 +73,20 @@ export default function LoginScreen({navigation}) {
           color="#841584"
           accessibilityLabel="SignUp with email and password"
         />
+        {
+            confirm ? <>
+                <TextInput value={code} onChangeText={text => setCode(text)} style={styles.input}/>
+                <Button
+                    onPress={() => {
+                        console.log("Login with email and password")
+                        confirmCode()
+                    }}
+                    title="Confirm code"
+                    color="#841584"
+                    accessibilityLabel="SignUp with email and password"
+                    />
+            </> : null
+        }
       </View>
     );
   }
